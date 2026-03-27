@@ -1,0 +1,69 @@
+"Monthly Climate Statistics for 'LORD HOWE ISLAND AERO' [200839]"
+"Created on [ 04 Mar 2026 14:39:49 UTC]"
+
+"200839 LORD HOWE ISLAND AERO"
+"Commenced: 1988"
+"Last Record: 2026"
+"Latitude:   31.54 Degrees South"
+"Longitude:  159.08 Degrees East"
+"Elevation:       5 m"
+"State: NSW"
+
+"Statistic Element","January","February","March","April","May","June","July","August","September","October","November","December","Annual","Number of Years","Start Year","End Year"
+"Mean maximum temperature (°C) for years 1988 to 2026 ",25.5,25.8,25.0,23.4,21.6,20.0,19.1,19.1,20.1,21.1,22.5,24.2,22.3,37,1988,2026
+"Highest temperature (°C) for years 1988 to 2026 ",30.5,31.3,29.7,27.9,25.8,23.9,23.2,24.2,24.1,26.9,28.0,28.5,31.3,37,1988,2026
+"Date of Highest temperature  °C  for years 1988 to 2026 ",22 Jan  2024,01 Feb  1996,02 Mar  2024,03 Apr  2024,10 May  2016,05 Jun  2003,23 Jul  2016,31 Aug  2024,01 Sep  2024,21 Oct  2025,30 Nov  2009,28 Dec  2023,01 Feb  1996,N/A,1988,2026
+"Lowest maximum temperature (°C) for years 1988 to 2026 ",21.2,22.6,20.7,19.2,16.8,16.2,15.3,15.8,15.6,16.9,18.4,19.5,15.3,37,1988,2026
+"Date of Lowest maximum temperature  °C  for years 1988 to 2026 ",01 Jan  2012,22 Feb  2001,26 Mar  2007,30 Apr  2009,29 May  2021,22 Jun  1995,25 Jul  2008,18 Aug  1990,07 Sep  1995,23 Oct  2012,01 Nov  2000,02 Dec  2022,25 Jul  2008,N/A,1988,2026
+"Decile 1 maximum temperature (°C) for years 1988 to 2025 ",23.5,24.1,23.4,21.7,20.0,18.3,17.5,17.3,18.2,19.0,20.4,21.9, ,34,1988,2025
+"Decile 9 maximum temperature (°C) for years 1988 to 2025 ",27.4,27.4,26.5,24.8,23.2,21.5,20.7,20.9,21.8,23.0,24.6,26.2, ,34,1988,2025
+"Mean number of days >= 30 °C for years 1988 to 2026 ",0.1,0.1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,37,1988,2026
+"Mean number of days >= 35 °C for years 1988 to 2026 ",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,37,1988,2026
+"Mean number of days >= 40 °C for years 1988 to 2026 ",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,37,1988,2026
+"Mean minimum temperature (°C) for years 1988 to 2026 ",20.8,21.1,20.2,18.2,16.5,14.8,14.0,13.6,14.7,15.8,17.5,19.4,17.2,37,1988,2026
+"Lowest temperature (°C) for years 1988 to 2026 ",13.1,13.7,13.3,11.2,8.7,7.5,6.1,6.4,5.9,7.8,9.2,11.4,5.9,37,1988,2026
+"Date of Lowest temperature  °C  for years 1988 to 2026 ",14 Jan  2012,26 Feb  2023,05 Mar  2021,20 Apr  1994,18 May  2018,30 Jun  2008,23 Jul  2018,07 Aug  2023,11 Sep  1992,16 Oct  2012,04 Nov  1991,04 Dec  1998,11 Sep  1992,N/A,1988,2026
+"Highest minimum temperature (°C) for years 1988 to 2026 ",25.3,26.8,24.1,23.5,22.5,20.6,19.2,20.2,20.6,21.8,23.6,24.3,26.8,37,1988,2026
+"Date of Highest minimum temperature  °C  for years 1988 to 2026 ",27 Jan  2024,23 Feb  2004,26 Mar  2019,15 Apr  2018,11 May  2016,01 Jun  2024,20 Jul  2016,29 Aug  2024,23 Sep  2009,30 Oct  2021,27 Nov  2025,29 Dec  1990,23 Feb  2004,N/A,1988,2026
+"Decile 1 minimum temperature (°C) for years 1988 to 2025 ",18.2,18.8,17.7,15.3,13.3,11.7,10.8,10.4,11.2,12.3,14.5,16.3, ,34,1988,2025
+"Decile 9 minimum temperature (°C) for years 1988 to 2025 ",23.0,23.1,22.1,20.8,19.1,17.6,16.6,16.4,17.8,18.7,20.4,21.8, ,34,1988,2025
+"Mean number of days <= 2 °C for years 1988 to 2026 ",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,37,1988,2026
+"Mean number of days <= 0 °C for years 1988 to 2026 ",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,37,1988,2026
+"Mean daily ground minimum temperature °C for years null to null ", , , , , , , , , , , , , ,, , 
+"Lowest ground temperature °C for years null to null ", , , , , , , , , , , , , ,, , 
+"Date of Lowest ground temperature °C for years null to null ", , , , , , , , , , , , , ,N/A, , 
+"Mean number of days ground min. temp. <= -1 °C for years null to null ", , , , , , , , , , , , , ,, , 
+"Mean rainfall (mm) for years 1988 to 2026 ",100.5,101.5,126.6,144.7,150.9,164.9,146.4,112.2,110.8,101.7,114.1,102.0,1474.1,37,1988,2026
+"Highest rainfall (mm) for years 1988 to 2026 ",479.4,523.6,290.0,515.2,321.6,562.0,273.8,286.0,208.0,229.6,286.4,245.4,2223.8,37,1988,2026
+"Date of Highest rainfall for years 1988 to 2026 ",1996,1998,2001,2009,2005,1996,2020,1990,2022,1998,2001,1991,1996,N/A,1988,2026
+"Lowest rainfall (mm) for years 1988 to 2026 ",1.0,5.0,16.8,34.2,47.8,47.2,43.8,22.4,29.0,14.6,14.0,8.2,984.6,37,1988,2026
+"Date of Lowest rainfall for years 1988 to 2026 ",2019,2000,2008,1993,2009,2023,2019,2007,2025,2015,2010,2018,2018,N/A,1988,2026
+"Decile 1 monthly rainfall (mm) for years 1800 to 3000 ",21.1,26.0,48.9,65.7,66.8,87.4,80.3,67.3,53.7,40.9,32.9,30.5, ,38,n/a,n/a
+"Decile 5 (median) monthly rainfall (mm) for years 1800 to 3000 ",73.6,77.8,108.4,121.8,141.4,139.4,138.2,104.6,110.8,86.8,108.8,90.8, ,38,n/a,n/a
+"Decile 5 (median) monthly rainfall (mm) for years 1800 to 3000 ",194.9,204.6,262.3,250.4,253.5,258.8,244.4,169.8,171.8,172.6,197.9,177.2, ,38,n/a,n/a
+"Highest daily rainfall (mm) for years 1988 to 2026 ",238.6,374.6,97.2,230.4,157.2,449.0,80.6,73.6,83.6,96.6,126.8,118.4,449.0,37,1988,2026
+"Date of Highest daily rainfall for years 1988 to 2026 ",08 Jan  1996,13 Feb  1998,23 Mar  2011,20 Apr  2009,19 May  1995,18 Jun  1996,27 Jul  2020,03 Aug  1990,26 Sep  2011,01 Oct  1996,19 Nov  2013,08 Dec  1992,18 Jun  1996,N/A,1988,2026
+"Mean number of days of rain for years 1988 to 2026 ",12.8,13.2,15.8,18.4,20.4,21.5,23.0,20.2,16.6,14.0,13.6,12.9,202.4,37,1988,2026
+"Mean number of days of rain >= 1 mm for years 1988 to 2026 ",9.0,9.1,11.1,13.2,14.4,16.9,17.4,14.9,11.3,9.5,9.3,9.0,145.1,37,1988,2026
+"Mean number of days of rain >= 10 mm for years 1988 to 2026 ",2.4,2.5,3.5,3.5,3.9,4.4,4.4,2.9,3.4,3.2,3.2,2.7,40.0,37,1988,2026
+"Mean number of days of rain >= 25 mm for years 1988 to 2026 ",0.9,1.0,1.5,1.4,1.6,1.3,1.0,0.9,1.1,0.9,1.4,1.2,14.2,37,1988,2026
+"Mean daily wind run (km) for years 1995 to 2023 ",493,501,470,438,471,487,501,467,457,432,442,440,467,26,1995,2023
+"Maximum wind gust speed (km/h) for years 1988 to 2025 ",104,118,122,146,148,131,118,121,115,102,117,97,148,35,1988,2025
+"Date of Maximum wind gust speed for years 1988 to 2025 ",31 Jan  2022,21 Feb  2008,27 Mar  1998,19 Apr  2009,22 May  1992,26 Jun  2003,14 Jul  1995,21 Aug  1992,01 Sep  1989,26 Oct  1991,09 Nov  1993,25 Dec  1998,22 May  1992,N/A,1988,2025
+"Mean daily sunshine (hours) for years null to null ", , , , , , , , , , , , , ,, , 
+"Mean daily solar exposure (MJ/(m*m)) for years null to null ", , , , , , , , , , , , , ,, , 
+"Mean number of clear days for years 1989 to 2010 ",4.7,4.8,4.1,5.3,4.9,4.6,5.3,7.5,7.0,5.8,7.2,6.6,67.8,17,1989,2010
+"Mean number of cloudy days for years 1989 to 2010 ",10.4,8.3,7.0,8.8,9.6,8.9,8.9,6.5,7.5,9.2,10.8,10.6,106.5,17,1989,2010
+"Mean daily evaporation (mm) for years null to null ", , , , , , , , , , , , , ,, , 
+"Mean 9am temperature (°C) for years 1989 to 2010 ",23.6,24.0,23.0,21.6,20.0,18.3,17.3,17.3,18.3,19.3,20.8,22.4,20.5,17,1989,2010
+"Mean 9am wet bulb temperature (°C) for years 1989 to 2010 ",20.1,20.1,19.3,17.9,16.3,14.8,13.9,13.7,15.0,15.7,17.3,18.7,16.9,17,1989,2010
+"Mean 9am dew point temperature (°C) for years 1989 to 2010 ",17.8,17.7,16.9,15.2,13.4,11.7,10.9,10.5,12.3,12.9,14.6,16.1,14.2,17,1989,2010
+"Mean 9am relative humidity (%) for years 1989 to 2010 ",71,68,69,68,67,66,67,65,68,67,69,68,68,17,1989,2010
+"Mean 9am cloud cover (okas) for years 1989 to 2010 ",4.6,4.7,4.5,4.3,4.4,4.5,4.1,3.9,4.2,4.5,4.7,4.7,4.4,17,1989,2010
+"Mean 9am wind speed (km/h) for years 1988 to 2010 ",21.3,22.0,21.6,20.2,21.0,21.9,21.8,21.5,21.0,20.4,19.9,20.0,21.0,22,1988,2010
+"Mean 3pm temperature (°C) for years 1989 to 2010 ",24.3,24.7,23.5,21.8,20.0,18.4,17.5,17.6,18.6,19.5,21.4,23.1,20.9,17,1989,2010
+"Mean 3pm wet bulb temperature (°C) for years 1989 to 2010 ",20.4,20.4,19.4,17.9,16.2,14.8,14.0,13.9,15.1,15.9,17.6,19.0,17.0,17,1989,2010
+"Mean 3pm dew point temperature (°C) for years 1989 to 2010 ",18.0,17.8,16.8,15.1,13.3,11.7,10.8,10.6,12.3,13.1,14.8,16.3,14.2,17,1989,2010
+"Mean 3pm relative humidity (%) for years 1989 to 2010 ",69,66,67,67,66,66,66,64,68,68,67,66,67,17,1989,2010
+"Mean 3pm cloud cover (oktas) for years 1989 to 2010 ",4.6,4.7,4.5,4.4,4.4,4.5,4.5,4.1,4.1,4.5,4.3,4.2,4.4,17,1989,2010
+"Mean 3pm wind speed (km/h) for years 1988 to 2010 ",22.4,23.3,22.5,20.9,21.7,22.5,23.9,23.0,22.4,20.6,20.9,21.4,22.1,22,1988,2010
