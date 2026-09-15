@@ -25,13 +25,3 @@ output_csv <- othervars |>
 write.csv(output_csv, "../AdjustData/ObsData.csv")
 
 
-# Standardise data, so it's offset by a constant so that the average un-adjusted 
-# value from 1991 through 2020 equals 0.88 degreeC so that 
-# values represent approximate warming since pre-industrial.
-
-baseline <- homvar |>
-  filter(year >= 1991, year <= 2020) |>
-  summarise(avtemp = mean(tmean, na.rm = TRUE))
-
-adjustTemp <- homvar |>
-  mutate(tmean.adj = tmean - baseline$avtemp + 0.88)

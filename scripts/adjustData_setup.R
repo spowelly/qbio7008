@@ -2,8 +2,10 @@
 library(lubridate)
 library(dplyr)
 
+# Set working directory
+setwd("C:/Users/sophm/UQ/QBIO7008/ProjectData/ClimateModelling")
 # Read in data
-data <- read.csv("../data/cipsap/Lord-Howe-Island-Aero_variables_monthly_1940_2024_hom.csv")
+data <- read.csv("./data/cipsap/Lord-Howe-Island-Aero_variables_monthly_1940_2024_hom.csv")
 
 homvar <- data |>
   rename_with(tolower) |>
@@ -12,14 +14,14 @@ homvar <- data |>
   mutate(t = round((year + (month/12)-(1/24)), 4)) |>
   dplyr::select(!c(country, station.name, day, dtr))
 
-othervars <- read.csv("../AdjustData/ObservedData.csv") |>
+othervars <- read.csv("scripts/AdjustData/ObservedData.csv") |>
   dplyr::select(!c(NASA, NOAA, HadCRU, Berk, ERA5, Berk.land, rssTLT))
 
 output_csv <- othervars |>
   left_join(homvar, by = join_by(t == t)) |>
   dplyr::filter(t>1940)
 
-write.csv(output_csv, "../AdjustData/ObsData.csv")
+write.csv(output_csv, "scripts/AdjustData/ObsData.csv")
 
 # Standardise data, so it's offset by a constant so that the average un-adjusted 
 # value from 1991 through 2020 equals 0.88 degreeC so that 

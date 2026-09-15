@@ -15,17 +15,29 @@ library(tidyr)
 
 
 
-#### Rainfall over the years by month ####
+#### Rainfall over the years ####
+# Data Cleaning #
+precipYr <- homvar_month |>
+  group_by(year) |>
+  filter(!any(is.na(rain))) |>
+  summarise(rainfall = sum(rain)) |>
+  mutate(lograin = log(rainfall),
+         rain_anom  = rainfall - mean(rainfall[year >= 1961 & year <= 1990], na.rm = TRUE))
 
-## Rainfall LINE GRAPH
-rainfallgraph <- ggplot(precipYr, aes(month, rain, group = year, colour = year)) +
+## Rainfall SUM LINE GRAPH
+rainfallgraph <- ggplot(precipYr, aes(year, rainfall)) +
   geom_point() +
-  geom_line(lwd = 1) +
-  scale_color_viridis_b()
+  geom_line(lwd = 0.5)
 print(rainfallgraph)
 
+## Rainfall Anomaly LINE GRAPH
+rainfall_anom_graph <- ggplot(precipYr, aes(year, rain_anom)) +
+  geom_col()
+print(rainfall_anom_graph)
+
+
 ## Rainfall BAR GRAPH
-RainfallBar <- ggplot(precipYr, aes(x = year, y = rain, fill = month)) +
+RainfallBar <- ggplot(precipYr, aes(x = year, y = rainfall, fill = month)) +
   geom_bar(position="stack", stat = 'identity') +
   scale_fill_gradient2(
     low = '#d90711',
@@ -349,7 +361,9 @@ p <-p + theme(legend.position = "bottom")+
 # you will want to expand your plot screen before this bit!
 p #awesomeness
 
-#### STRIPE PLOTS ####
+
+
+#### TEMPERATURE STRIPE PLOTS ####
 
 ggstripes(
     stripe_av,
@@ -375,4 +389,6 @@ stripeplot <- function(df, var, plotname) {
 stripeplot(tempYr, meanmax, "LHI mean max")
 stripeplot(tempYr, meanmin, "LHI mean min")
 stripeplot(tempYr, meantemp, "LHI mean temp")
+
+#### RAINFALL ANOMALY PLOTS ####
 
