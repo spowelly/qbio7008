@@ -19,7 +19,7 @@ library(nlme)
 library(segmented)
 library(SiZer)
 library(ggpubr)
-library("climatol")
+library(climatol)
 
 
 setwd("C:/Users/sophm/UQ/QBIO7008/ProjectData/ClimateModelling")

@@ -155,9 +155,6 @@ ggsave(paste("./graphs/linearmodel_", "rain_anom", ".jpeg", sep = ""))
 #---------------------------------#
 ####### ANNUAL VARIABILITY  #######
 #---------------------------------#
-rainroll10trend_2024
-
-
 raincv10trend_2024 <- lm(rain_cv_10yr ~ year, data = annual_climate)
 summary(raincv10trend_2024)
 
@@ -175,6 +172,7 @@ ggplot(annual_climate, aes(x = year, y = rain_cv_20yr)) +
   geom_line() +
   geom_smooth(method = "lm", se = TRUE, , colour = "black") +
   labs(x = "Year", y = "20-year rolling rainfall CV (%)") +
+  annotate("text", x = 2010, y = 2200, label = paste("Total Rainfall ", sumrainfall_2024$formatted, sep = " "), color = "black", size = 3) +
   theme_classic()
 
 
@@ -182,12 +180,13 @@ m_raincv <- lm(rain_roll10 ~ year, data = annual_climate)
 summary(m_raincv)
 
 
-ggplot(annual_climate, aes(x = year, y = rain_cv_11yr)) +
+ggplot(annual_climate, aes(x = year, y = rain_cv_10yr)) +
   geom_line() +
   geom_smooth(method = "lm", se = TRUE, , colour = "black") +
-  labs(x = "Year", y = "11-year rolling rainfall CV (%)") +
+  labs(x = "Year", y = "10-year rolling rainfall CV (%)") +
   theme_classic()
-
+ggsave(paste("./graphs/linearmodel_", "rain_10yrCV", ".jpeg", sep = ""))
+m_raincv <- lm(rain_roll10 ~ year, data = annual_climate)
 
 
 rainfallcvgraph <- ggplot(annual_climate, aes(x = year)) +
@@ -195,7 +194,7 @@ rainfallcvgraph <- ggplot(annual_climate, aes(x = year)) +
   geom_line(aes(y = rain_cv_20yr),linewidth = 1.2) +
   labs(x = "Year", y = "Rainfall coefficient of variation (%)") +
   theme_classic()
-
+rainfallcvgraph
 
 
 ggplot(annual_climate, aes(x = year)) +

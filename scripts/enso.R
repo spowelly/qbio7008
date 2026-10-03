@@ -5,34 +5,14 @@ library(ggplot2)
 library(nlme)
 library(segmented)
 
+
+
+
+
+
 # Set working directory
 setwd("C:/Users/sophm/UQ/QBIO7008/ProjectData/ClimateModelling")
 
-# Read in data and clean to usable format 
-homvar_month <- read.csv("./data/cipsap/Lord-Howe-Island-Aero_variables_monthly_1940_2024_hom.csv") |>
-  rename_with(tolower) |>
-  mutate(date = dmy(paste(1, month, year))) |>
-  mutate(across(where(is.numeric), ~ replace(.x, .x == -99.9, NA))) |>
-  dplyr::select(!c(country, station.name, day, dtr)) |>
-  # Add seasonality
-  mutate(season = case_when(month <3 | month == 12 ~ "DJF",
-                            month < 6 ~ "MAM",
-                            month < 9 ~ "JJA", 
-                            month < 12 ~ "SON"))
-
-# Convert data into monthly anomalies 
-climate_anom <- homvar_month |>
-  mutate(
-    # Monthly averages for the period 1961 - 1990 (as per BOM)
-    tmin_clim  = mean(tmin[year >= 1961 & year <= 1990], na.rm = TRUE),
-    tmean_clim = mean(tmean[year >= 1961 & year <= 1990], na.rm = TRUE),
-    tmax_clim  = mean(tmax[year >= 1961 & year <= 1990], na.rm = TRUE),
-    # Calculate anomalies - value minus monthly average
-    tmin_anom  = tmin  - tmin_clim,
-    tmean_anom = tmean - tmean_clim,
-    tmax_anom  = tmax  - tmax_clim
-  ) |>
-  ungroup()
 
 # Relative Nino 3.4 index from BOM
 enso <- read.csv("./data/enso/bom_rnino34.csv", col.names=c("year","month", "rel3.4")) |>
@@ -44,18 +24,92 @@ ensonoaa <- read.csv("./data/enso/nina34.anom.csv", col.names=c("date", "raw3.4"
   dplyr::filter(raw3.4 != -9999)
 
 # Join dataframes
-joined <- left_join(climate_anom, enso, by = "date", keep = FALSE) |>
+climate_enso <- left_join(homvar_month, enso, by = "date", keep = FALSE) |>
   left_join(ensonoaa, by = "date", keep = FALSE)
   
 
 # Basic correlation
-cor(joined$nino3.4, joined$tmean_anom, method = "pearson", use = "complete.obs")
-cor(joined$nino3.4, joined$tmin_anom, method = "pearson", use = "complete.obs")
-cor(joined$nino3.4, joined$tmax_anom, method = "pearson", use = "complete.obs")
-cor(joined$nino3.4, joined$rain, method = "pearson", use = "complete.obs")
+cor(climate_enso$rel3.4, climate_enso$tmean_anom, method = "pearson", use = "complete.obs")
+cor(climate_enso$rel3.4, climate_enso$tmin_anom, method = "pearson", use = "complete.obs")
+cor(climate_enso$rel3.4, climate_enso$tmax_anom, method = "pearson", use = "complete.obs")
+cor(climate_enso$rel3.4, climate_enso$rain, method = "pearson", use = "complete.obs")
 
 # Join dataframes NOAA
 joinednoaa <- left_join(climate_anom, ensonoaa, by = "date", keep = FALSE)
+
+
+# ------------------------------------------------------------
+# SEASONAL ENSO + CLIMATE
+# ------------------------------------------------------------
+
+seasonal_enso <- climate_enso |>
+  group_by(season_year, season, season_num) |>
+  summarise(rel3.4 = if (sum(!is.na(rel3.4)) == 3)
+    mean(rel3.4)
+    else NA_real_,
+    
+    raw3.4 = if (sum(!is.na(raw3.4)) == 3)
+      mean(raw3.4)
+    else NA_real_,
+    
+    # Temperature anomalies: seasonal mean
+    tmean_anom = if (sum(!is.na(tmean_anom)) == 3)
+      mean(tmean_anom)
+    else NA_real_,
+    
+    tmin_anom = if (sum(!is.na(tmin_anom)) == 3)
+      mean(tmin_anom)
+    else NA_real_,
+    
+    tmax_anom = if (sum(!is.na(tmax_anom)) == 3)
+      mean(tmax_anom)
+    else NA_real_,
+    
+    # Rainfall: seasonal TOTAL
+    rain = if (sum(!is.na(rain)) == 3)
+      sum(rain)
+    else NA_real_,
+    
+    # Seasonal rainfall anomaly
+    rain_anom = if (sum(!is.na(rain_anom)) == 3)
+      sum(rain_anom)
+    else NA_real_,
+    
+    .groups = "drop") |>
+  
+  mutate(season = factor(season,levels = c("DJF", "MAM", "JJA", "SON"))) |>
+  arrange(season_year, season_num) |>
+  # ENSO lags
+  mutate(enso_lag0 = rel3.4,
+         enso_lag3 = lag(rel3.4, 1),
+         enso_lag6 = lag(rel3.4, 2),
+         enso_phase = case_when(rel3.4 >=  0.8 ~ "El Niño",
+                                rel3.4 <= -0.8 ~ "La Niña",
+                                TRUE ~ "Neutral"),
+         
+         # Make Neutral the reference category for modelling
+         enso_phase = factor(enso_phase, levels = c("Neutral", "La Niña", "El Niño")),
+         enso_negative = pmax(-rel3.4, 0),
+         enso_positive = pmax(rel3.4, 0))
+
+
+seasonal_enso <- seasonal_enso |>
+  # ENSO lags
+  mutate(enso_lag0 = rel3.4,
+         enso_lag3 = lag(rel3.4, 1),
+         enso_lag6 = lag(rel3.4, 2),
+         enso_phase0 = factor(enso_phase, levels = c("Neutral", "La Niña", "El Niño")),
+         enso_phase3 = factor(lag(enso_phase, 1), levels = c("Neutral", "La Niña", "El Niño")),
+         enso_phase6 = factor(lag(enso_phase, 2), levels = c("Neutral", "La Niña", "El Niño")),
+         # Make Neutral the reference category for modelling
+         enso_negative0 = pmax(-rel3.4, 0),
+         enso_negative3 = lag(pmax(-rel3.4, 0),1),
+         enso_negative6 = lag(pmax(-rel3.4, 0),2),
+         enso_positive0 = pmax(rel3.4, 0),
+         enso_positive3 = lag(pmax(rel3.4, 0),1),
+         enso_positive6 = lag(pmax(rel3.4, 0),2))
+  
+
 
 # Exploratory plots
 pairs(joined[, 12:16])
@@ -65,3 +119,628 @@ ggplot(joined) +
   # geom_line(aes(date, raw3.4), colour = "purple") +
   geom_line(aes(date, tmean_anom), colour = "blue")
   
+
+
+library(corrplot)
+corrplot.mixed(cor(Senecio[,3:12]), tl.cex=.45,
+               number.cex = .8, upper="ellipse")
+
+
+
+
+
+
+
+
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(ggplot2)
+
+# ============================================================
+# 1. HELPER FUNCTION
+#    Pearson correlation returning r, p-value and n
+# ============================================================
+
+cor_test <- function(x, y) {
+  
+  # Keep only observations where both variables are present
+  keep <- complete.cases(x, y)
+  
+  x <- x[keep]
+  y <- y[keep]
+  
+  # Number of paired observations
+  n <- length(x)
+  
+  # Need sufficient observations and variation to run correlation
+  if (n < 3 || sd(x) == 0 || sd(y) == 0) {
+    return(
+      tibble(
+        r = NA_real_,
+        p_value = NA_real_,
+        n = n
+      )
+    )
+  }
+  
+  test <- cor.test(
+    x,
+    y,
+    method = "pearson"
+  )
+  
+  tibble(
+    r = unname(test$estimate),
+    p_value = test$p.value,
+    n = n
+  )
+}
+
+
+# ============================================================
+# 2. PUT CLIMATE AND ENSO VARIABLES INTO LONG FORMAT
+# ============================================================
+
+enso_analysis <- seasonal_enso |>
+  
+  # Climate response variables
+  pivot_longer(
+    cols = c(
+      rain_anom,
+      tmin_anom,
+      tmean_anom,
+      tmax_anom
+    ),
+    names_to = "variable",
+    values_to = "climate_anom"
+  ) |>
+  
+  # ENSO lags
+  pivot_longer(
+    cols = c(
+      enso_lag0,
+      enso_lag3,
+      enso_lag6
+    ),
+    names_to = "lag",
+    values_to = "enso_index"
+  ) |>
+  
+  # Clean labels
+  mutate(
+    variable = recode(
+      variable,
+      rain_anom  = "Rainfall",
+      tmin_anom  = "Minimum temperature",
+      tmean_anom = "Mean temperature",
+      tmax_anom  = "Maximum temperature"
+    ),
+    
+    lag = recode(
+      lag,
+      enso_lag0 = "Lag 0",
+      enso_lag3 = "Lag 3",
+      enso_lag6 = "Lag 6"
+    ),
+    
+    # Explicit ordering
+    season = factor(
+      season,
+      levels = c("DJF", "MAM", "JJA", "SON")
+    ),
+    
+    lag = factor(
+      lag,
+      levels = c("Lag 0", "Lag 3", "Lag 6")
+    ),
+    
+    variable = factor(
+      variable,
+      levels = c(
+        "Rainfall",
+        "Minimum temperature",
+        "Mean temperature",
+        "Maximum temperature"
+      )
+    )
+  )
+
+
+# ============================================================
+# 3. RUN CORRELATION TESTS
+# ============================================================
+
+enso_correlations <- enso_analysis |>
+  group_by(variable, season, lag) |>
+  summarise(
+    results = list(
+      cor_test(
+        climate_anom,
+        enso_index
+      )
+    ),
+    .groups = "drop"
+  ) |>
+  
+  unnest(results)
+
+
+# View results
+enso_correlations
+
+
+# ============================================================
+# 4. ADD FORMATTED RESULTS FOR TABLES / FIGURES
+# ============================================================
+
+enso_correlations <- enso_correlations |>
+  mutate(
+    
+    # Significance stars - useful for plotting
+    significance = case_when(
+      p_value < 0.001 ~ "***",
+      p_value < 0.01  ~ "**",
+      p_value < 0.05  ~ "*",
+      TRUE            ~ ""
+    ),
+    
+    # Formatted p-value
+    p_label = case_when(
+      p_value < 0.001 ~ "p < 0.001",
+      TRUE ~ paste0("p = ", sprintf("%.3f", p_value))
+    ),
+    
+    # Full formatted result
+    result = paste0(
+      "r = ", sprintf("%.2f", r),
+      ", ", p_label,
+      ", n = ", n
+    )
+  )
+
+
+# ============================================================
+# 5. CORRELATION HEATMAP
+# ============================================================
+
+enso_correlation_heatmap <- ggplot(
+  enso_correlations,
+  aes(
+    x = lag,
+    y = season,
+    fill = r
+  )
+) +
+  
+  geom_tile(
+    colour = "white",
+    linewidth = 1
+  ) +
+  
+  # Display correlation coefficient + significance
+  geom_text(
+    aes(
+      label = paste0(
+        sprintf("%.2f", r),
+        significance
+      )
+    ),
+    size = 3.5
+  ) +
+  
+  # Correlation coefficients always range from -1 to +1
+  scale_fill_gradient2(
+    low = "#8B0000",
+    mid = "white",
+    high = "#003B73",
+    midpoint = 0,
+    limits = c(-1, 1),
+    name = "Pearson\ncorrelation (r)"
+  ) +
+  
+  # Separate panel for each climate variable
+  facet_wrap(
+    ~ variable,
+    ncol = 2
+  ) +
+  
+  labs(
+    x = "ENSO lag (months)",
+    y = "Climate season",
+    caption = "* p < 0.05   ** p < 0.01   *** p < 0.001"
+  ) +
+  
+  theme_minimal(base_size = 11) +
+  
+  theme(
+    panel.grid = element_blank(),
+    strip.text = element_text(face = "bold"),
+    legend.position = "right"
+  )
+
+enso_correlation_heatmap
+
+
+# ============================================================
+# 6. OPTIONAL: TABLE FOR REPORTING RESULTS
+# ============================================================
+
+enso_results_table <- enso_correlations |>
+  dplyr::select(
+    variable,
+    season,
+    lag,
+    r,
+    p_value,
+    n,
+    result
+  ) |>
+  arrange(
+    variable,
+    season,
+    lag
+  )
+
+enso_results_table
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ============================================================
+# 3. VISUALISE RAINFALL BY ENSO PHASE
+# ============================================================
+
+enso_rain_phase_plot <- ggplot(
+  seasonal_enso,
+  aes(
+    x = enso_phase,
+    y = rain_anom,
+    fill = enso_phase
+  )
+) +
+  
+  geom_boxplot(
+    alpha = 0.6,
+    outlier.shape = NA
+  ) +
+  
+  geom_jitter(
+    width = 0.15,
+    alpha = 0.5,
+    size = 1.5
+  ) +
+  
+  facet_wrap(
+    ~ season,
+    ncol = 2
+  ) +
+  
+  scale_fill_manual(
+    values = c(
+      "La Niña" = "#2166AC",
+      "Neutral" = "grey80",
+      "El Niño" = "#B2182B"
+    )
+  ) +
+  
+  labs(
+    x = NULL,
+    y = "Seasonal rainfall anomaly (mm)",
+    fill = "ENSO phase"
+  ) +
+  
+  theme_minimal(base_size = 11) +
+  
+  theme(
+    panel.grid.minor = element_blank(),
+    legend.position = "bottom"
+  )
+
+enso_rain_phase_plot
+
+
+# ============================================================
+# 4. CATEGORICAL MODEL
+#
+# Tests:
+#   La Niña vs Neutral
+#   El Niño vs Neutral
+#
+# separately for each season
+# ============================================================
+
+enso_phase_models <- seasonal_enso |>
+  filter(
+    !is.na(rain_anom),
+    !is.na(enso_phase)
+  ) |>
+  
+  group_by(season) |>
+  
+  nest() |>
+  
+  mutate(
+    
+    model = map(
+      data,
+      ~ lm(
+        rain_anom ~ enso_phase,
+        data = .x
+      )
+    ),
+    
+    coefficients = map(
+      model,
+      ~ broom::tidy(.x, conf.int = TRUE)
+    )
+  ) |>
+  
+  dplyr::select(
+    season,
+    coefficients
+  ) |>
+  
+  unnest(coefficients)
+
+enso_phase_models
+
+
+# ============================================================
+# 5. KEEP THE TWO COMPARISONS OF INTEREST
+# ============================================================
+
+enso_phase_results <- enso_phase_models |>
+  dplyr::filter(
+    term %in% c(
+      "enso_phaseLa Niña",
+      "enso_phaseEl Niño"
+    )
+  ) |>
+  
+  mutate(
+    comparison = recode(
+      term,
+      "enso_phaseLa Niña" = "La Niña vs Neutral",
+      "enso_phaseEl Niño" = "El Niño vs Neutral"
+    )
+  ) |>
+  
+  dplyr::select(
+    season,
+    comparison,
+    estimate,
+    conf.low,
+    conf.high,
+    p.value
+  )
+
+enso_phase_results
+
+
+# ============================================================
+# INTERPRETATION OF 'estimate':
+#
+# Positive estimate:
+#   higher rainfall anomaly than Neutral
+#
+# Negative estimate:
+#   lower rainfall anomaly than Neutral
+#
+# Example:
+#
+# La Niña vs Neutral:
+# estimate = +100
+#
+# means La Niña seasons averaged ~100 mm wetter
+# than Neutral seasons.
+# ============================================================
+
+
+
+# ============================================================
+# 6. ASYMMETRIC CONTINUOUS MODEL
+#
+# Allows positive and negative Niño 3.4 values to have
+# DIFFERENT relationships with rainfall.
+# ============================================================
+
+enso_asymmetric_models <- seasonal_enso |>
+  dplyr::filter(
+    !is.na(rain_anom),
+    !is.na(rel3.4)
+  ) |>
+  
+  group_by(season) |>
+  
+  nest() |>
+  
+  mutate(
+    
+    model = map(
+      data,
+      ~ lm(
+        rain_anom ~ enso_negative + enso_positive,
+        data = .x
+      )
+    ),
+    
+    coefficients = map(
+      model,
+      ~ broom::tidy(.x, conf.int = TRUE)
+    )
+  ) |>
+  
+  dplyr::select(
+    season,
+    coefficients
+  ) |>
+  
+  unnest(coefficients)
+
+
+# ============================================================
+# 7. EXTRACT LA NIÑA-LIKE AND EL NIÑO-LIKE SLOPES
+# ============================================================
+
+enso_asymmetric_results <- enso_asymmetric_models |>
+  dplyr::filter(
+    term %in% c(
+      "enso_negative",
+      "enso_positive"
+    )
+  ) |>
+  
+  mutate(
+    enso_direction = recode(
+      term,
+      "enso_negative" = "Increasing La Niña strength",
+      "enso_positive" = "Increasing El Niño strength"
+    )
+  ) |>
+  
+  dplyr::select(
+    season,
+    enso_direction,
+    estimate,
+    conf.low,
+    conf.high,
+    p.value
+  )
+
+enso_asymmetric_results
+
+
+# ============================================================
+# INTERPRETATION:
+#
+# enso_negative:
+#   Change in rainfall anomaly for each 1 °C increase
+#   in the MAGNITUDE of negative relative Niño 3.4.
+#
+#   Positive slope -> stronger La Niña-like conditions
+#                     associated with wetter conditions
+#
+#   Negative slope -> stronger La Niña-like conditions
+#                     associated with drier conditions
+#
+#
+# enso_positive:
+#   Change in rainfall anomaly for each 1 °C increase
+#   in positive relative Niño 3.4.
+#
+#   Positive slope -> stronger El Niño-like conditions
+#                     associated with wetter conditions
+#
+#   Negative slope -> stronger El Niño-like conditions
+#                     associated with drier conditions
+# ============================================================
+
+
+
+# ============================================================
+# 8. OPTIONAL: VISUALISE CONTINUOUS ASYMMETRIC RELATIONSHIP
+# ============================================================
+
+enso_rain_continuous_plot <- ggplot(
+  seasonal_enso,
+  aes(
+    x = rel3.4,
+    y = rain_anom
+  )
+) +
+  
+  # Individual seasons
+  geom_point(
+    alpha = 0.5,
+    size = 1.5
+  ) +
+  
+  # Separate regression on negative ENSO values
+  geom_smooth(
+    data = seasonal_enso |> filter(rel3.4 <= 0),
+    method = "lm",
+    se = TRUE,
+    colour = "#2166AC"
+  ) +
+  
+  # Separate regression on positive ENSO values
+  geom_smooth(
+    data = seasonal_enso |> filter(rel3.4 >= 0),
+    method = "lm",
+    se = TRUE,
+    colour = "#B2182B"
+  ) +
+  
+  # BOM thresholds
+  geom_vline(
+    xintercept = -0.8,
+    linetype = "dashed",
+    colour = "#2166AC"
+  ) +
+  
+  geom_vline(
+    xintercept = 0.8,
+    linetype = "dashed",
+    colour = "#B2182B"
+  ) +
+  
+  # Zero line
+  geom_vline(
+    xintercept = 0,
+    colour = "grey50",
+    linewidth = 0.4
+  ) +
+  
+  geom_hline(
+    yintercept = 0,
+    colour = "grey50",
+    linewidth = 0.4
+  ) +
+  
+  facet_wrap(
+    ~ season,
+    ncol = 2
+  ) +
+  
+  labs(
+    x = "Relative Niño 3.4 index (°C)",
+    y = "Seasonal rainfall anomaly (mm)"
+  ) +
+  
+  theme_minimal(base_size = 11) +
+  
+  theme(
+    panel.grid.minor = element_blank()
+  )
+
+enso_rain_continuous_plot
