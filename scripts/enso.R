@@ -7,9 +7,6 @@ library(segmented)
 
 
 
-
-
-
 # Set working directory
 setwd("C:/Users/sophm/UQ/QBIO7008/ProjectData/ClimateModelling")
 
@@ -24,7 +21,7 @@ ensonoaa <- read.csv("./data/enso/nina34.anom.csv", col.names=c("date", "raw3.4"
   dplyr::filter(raw3.4 != -9999)
 
 # Join dataframes
-climate_enso <- left_join(homvar_month, enso, by = "date", keep = FALSE) |>
+climate_enso <- left_join(monthly_climate, enso, by = "date", keep = FALSE) |>
   left_join(ensonoaa, by = "date", keep = FALSE)
   
 
@@ -33,10 +30,6 @@ cor(climate_enso$rel3.4, climate_enso$tmean_anom, method = "pearson", use = "com
 cor(climate_enso$rel3.4, climate_enso$tmin_anom, method = "pearson", use = "complete.obs")
 cor(climate_enso$rel3.4, climate_enso$tmax_anom, method = "pearson", use = "complete.obs")
 cor(climate_enso$rel3.4, climate_enso$rain, method = "pearson", use = "complete.obs")
-
-# Join dataframes NOAA
-joinednoaa <- left_join(climate_anom, ensonoaa, by = "date", keep = FALSE)
-
 
 # ------------------------------------------------------------
 # SEASONAL ENSO + CLIMATE
@@ -111,28 +104,6 @@ seasonal_enso <- seasonal_enso |>
   
 
 
-# Exploratory plots
-pairs(joined[, 12:16])
-# Plot using line
-ggplot(joined) +
-  geom_line(aes(date, -rel3.4), colour = "black") +
-  # geom_line(aes(date, raw3.4), colour = "purple") +
-  geom_line(aes(date, tmean_anom), colour = "blue")
-  
-
-
-library(corrplot)
-corrplot.mixed(cor(Senecio[,3:12]), tl.cex=.45,
-               number.cex = .8, upper="ellipse")
-
-
-
-
-
-
-
-
-library(dplyr)
 library(tidyr)
 library(purrr)
 library(ggplot2)
@@ -744,3 +715,16 @@ enso_rain_continuous_plot <- ggplot(
   )
 
 enso_rain_continuous_plot
+
+
+
+
+
+enso_correlations |>
+  dplyr::filter(
+    variable %in% c("Rainfall", "Mean temperature")
+  ) |>
+  dplyr::select(variable, season, lag, r, p_value, n) |>
+  arrange(variable, season, lag)
+
+print(n = 24)

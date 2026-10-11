@@ -1,11 +1,13 @@
 # ------------------------------------------------------------
 # SETUP
 # ------------------------------------------------------------
+# Load modules
 library(lubridate)
 library(dplyr)
 library(tidyr)
 library(slider)
 
+# Set working directory
 setwd("C:/Users/sophm/UQ/QBIO7008/ProjectData/ClimateModelling")
 
 # ------------------------------------------------------------
@@ -33,7 +35,7 @@ monthly_climate <- read.csv("data/cipsap/Lord-Howe-Island-Aero_variables_monthly
          # Combined season identifier
          y_season = paste(season_year,season,sep = "_"),
          # Numeric season identifier
-         season_num = case_match(as.character(season),
+         season_num = recode_values(as.character(season),
                                  "DJF" ~ 1,
                                  "MAM" ~ 2,
                                  "JJA" ~ 3,
@@ -214,6 +216,9 @@ annual_climate <- annual_climate |>
                                  .before = 4,.after = 5,.complete = TRUE),
          
          rain_cv_10yr = slide_dbl(rain, \(x) roll_cv(x, 8),
+                                  .before = 4,.after = 5,.complete = TRUE),
+  # Rainfall - SD to compare to CV
+         rain_sd_10yr = slide_dbl(rain, \(x) roll_sd(x, 8),
                                   .before = 4,.after = 5,.complete = TRUE)) |>
          
   # Temperature
@@ -231,3 +236,5 @@ annual_climate <- annual_climate |>
          
 # Remove superfluous functions
 rm(roll_cv, roll_mean, roll_sd)
+# Remove superfluous datasets
+rm(annual_clim, monthly_clim, seasonal_clim)

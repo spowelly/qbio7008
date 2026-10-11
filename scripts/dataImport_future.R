@@ -1,10 +1,12 @@
 # ------------------------------------------------------------
 # SETUP
 # ------------------------------------------------------------
+# Load modules
 library(lubridate)
 library(tidyverse)
 library(dplyr)
 
+# Set working directory
 setwd("C:/Users/sophm/UQ/QBIO7008/ProjectData/ClimateModelling")
 
 # ------------------------------------------------------------
@@ -285,4 +287,3 @@ rm(future_rain_month, future_rain_daily, model_rain_calibration, obs_rain_calibr
 # Remove after checking
 rm(bias_parameters, bc_check)
 rm(rain_bias_parameters)
-

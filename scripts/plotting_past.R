@@ -381,3 +381,10 @@ stripeplot(tempYr, meantemp, "LHI mean temp")
 
 #### RAINFALL ANOMALY PLOTS ####
 
+# VISUALISE - Plot rain variability TRENDS (lm &loess)
+ggplot(annual_climate, aes(year, rain_cv_10yr)) +
+  geom_point(colour = "darkblue") +
+  geom_smooth(method = "loess", se = TRUE, colour = "darkblue", linewidth = 0.7) +
+  geom_smooth(method = "lm", se = FALSE, colour = "darkblue", linewidth = 1) +
+  labs(x = "Year", y = "10-year rolling coefficient of variation for rainfall")
+  annotate("text", x = 1960, y = 25, label = paste(round(m0_raincv[["coefficients"]][["year"]]*10, 2), " % change in variation per decade"), color = "black", size = 3) 

@@ -75,3 +75,6 @@ write.csv(zout,file=fout,row.names=F,quote=F)
 #########
 #########
 #########
+# Remove superfluous values, functions and datasets
+rm(list = ls()[!sapply(ls(), function(x) is.data.frame(get(x)))])
+rm(zobs, zobs.all, zout)
