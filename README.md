@@ -33,7 +33,7 @@ The repository is intended to make the quantitative analyses, tables and figures
 └── README.md
 ```
 
-The file extensions above are shown for clarity. Input subdirectories and file availability may vary according to data access and local configuration. The repository may also contain RStudio project files and local R session files; these are not analytical inputs.
+The file extensions above are shown for clarity.
 
 ## Data sources and provenance
 
