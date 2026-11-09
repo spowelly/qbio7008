@@ -1,100 +1,109 @@
-variable,group,index_name,description,units
-cdd,Rainfall extremes,Consecutive dry days,Maximum number of consecutive dry days when PR < 1.0 mm.,days
-cddcold25,Degree days,Cooling Degree Days,Annual sum of TM âˆ’ 25 for days when TM > 25Â°C.,degree-days
-csdi,Temperature extremes,Cold spell duration indicator,Annual number of days contributing to events where at least 6 consecutive days have TN below the 10th percentile.,days
-csdi3,Temperature extremes,3-day cold spell duration indicator,Annual number of days contributing to events where at least 3 consecutive days have TN below the 10th percentile.,days
-cwd,Rainfall extremes,Consecutive wet days,Maximum number of consecutive wet days when PR â‰¥ 1.0 mm.,days
-ehf_hwa,Heatwaves,EHF heatwave intensity,Downloaded CIPSA variable; exact mapping/definition was not specified in the supplied CIPSA table.,
-ehf_hwd,Heatwaves,EHF heatwave duration,Length of the longest heatwave.,days
-ehf_hwf,Heatwaves,EHF heatwave frequency,Number of days contributing to heatwaves.,days
-ehf_hwm,Heatwaves,EHF heatwave mean,Downloaded CIPSA variable; exact mapping/definition was not specified in the supplied CIPSA table.,
-ehf_hwn,Heatwaves,EHF heatwave number,Number of heatwaves.,count
-gddgrow10,Degree days,Growing Degree Days (base 10Â°C),Downloaded CIPSA variable; exact definition was not specified in the supplied CIPSA table.,degree-days
-r100mm,Rainfall extremes,Rain days â‰¥100 mm,Number of days with rainfall meeting or exceeding 100 mm.,days
-r10mm,Rainfall extremes,Rain days â‰¥10 mm,Number of days with rainfall meeting or exceeding 10 mm.,days
-r1mm,Rainfall extremes,Rain days â‰¥1 mm,Number of days with rainfall meeting or exceeding 1 mm.,days
-r20mm,Rainfall extremes,Rain days â‰¥20 mm,Number of days with rainfall meeting or exceeding 20 mm.,days
-r30mm,Rainfall extremes,Rain days â‰¥30 mm,Number of days with rainfall meeting or exceeding 30 mm.,days
-r40mm,Rainfall extremes,Rain days â‰¥40 mm,Number of days with rainfall meeting or exceeding 40 mm.,days
-r50mm,Rainfall extremes,Rain days â‰¥50 mm,Number of days with rainfall meeting or exceeding 50 mm.,days
-r5mm,Rainfall extremes,Rain days â‰¥5 mm,Number of days with rainfall meeting or exceeding 5 mm.,days
-r60mm,Rainfall extremes,Rain days â‰¥60 mm,Number of days with rainfall meeting or exceeding 60 mm.,days
-r70mm,Rainfall extremes,Rain days â‰¥70 mm,Number of days with rainfall meeting or exceeding 70 mm.,days
-r80mm,Rainfall extremes,Rain days â‰¥80 mm,Number of days with rainfall meeting or exceeding 80 mm.,days
-r90mm,Rainfall extremes,Rain days â‰¥90 mm,Number of days with rainfall meeting or exceeding 90 mm.,days
-r95p,Rainfall extremes,Rainfall from heavy rain days,Annual sum of daily PR above the 95th percentile.,mm
-r95ptot,Rainfall extremes,Heavy-rain contribution,Percentage of annual rainfall contributed by days above the 95th percentile.,%
-r99p,Rainfall extremes,Rainfall from very heavy rain days,Annual sum of daily PR above the 99th percentile.,mm
-r99ptot,Rainfall extremes,Very-heavy-rain contribution,Percentage of annual rainfall contributed by days above the 99th percentile.,%
-rx1day,Rainfall extremes,Maximum 1-day rainfall,Maximum 1-day rainfall total.,mm
-rx1day_ymd,Extreme-event timing,Date associated with rx1day,Calendar date associated with the corresponding annual extreme.,date
-rx3day,Rainfall extremes,Maximum 3-day rainfall,Maximum consecutive 3-day rainfall total.,mm
-rx3day_ymd,Extreme-event timing,Date associated with rx3day,Calendar date associated with the corresponding annual extreme.,date
-rx5day,Rainfall extremes,Maximum 5-day rainfall,Maximum consecutive 5-day rainfall total.,mm
-rx5day_ymd,Extreme-event timing,Date associated with rx5day,Calendar date associated with the corresponding annual extreme.,date
-sdii,Rainfall extremes,Standard Daily Intensity Index,Annual rainfall intensity on wet days (PR â‰¥ 1.0 mm).,mm/day
-tn10p,Temperature extremes,Cold nights,Number of days when TN is below the 10th percentile.,days
-tn90p,Temperature extremes,Warm nights,Number of days when TN is above the 90th percentile.,days
-tngt20,Fixed temperature thresholds,Warm nights above 20Â°C,Number of days when TN is above 20Â°C.,days
-tngt21,Fixed temperature thresholds,Warm nights above 21Â°C,Number of days when TN is above 21Â°C.,days
-tngt22,Fixed temperature thresholds,Warm nights above 22Â°C,Number of days when TN is above 22Â°C.,days
-tngt23,Fixed temperature thresholds,Warm nights above 23Â°C,Number of days when TN is above 23Â°C.,days
-tngt24,Fixed temperature thresholds,Warm nights above 24Â°C,Number of days when TN is above 24Â°C.,days
-tngt25,Fixed temperature thresholds,Warm nights above 25Â°C,Number of days when TN is above 25Â°C.,days
-tngt26,Fixed temperature thresholds,Warm nights above 26Â°C,Number of days when TN is above 26Â°C.,days
-tngt27,Fixed temperature thresholds,Warm nights above 27Â°C,Number of days when TN is above 27Â°C.,days
-tngt28,Fixed temperature thresholds,Warm nights above 28Â°C,Number of days when TN is above 28Â°C.,days
-tngt29,Fixed temperature thresholds,Warm nights above 29Â°C,Number of days when TN is above 29Â°C.,days
-tngt30,Fixed temperature thresholds,Warm nights above 30Â°C,Number of days when TN is above 30Â°C.,days
-tngt31,Fixed temperature thresholds,Warm nights above 31Â°C,Number of days when TN is above 31Â°C.,days
-tngt32,Fixed temperature thresholds,Warm nights above 32Â°C,Number of days when TN is above 32Â°C.,days
-tnlt13,Fixed temperature thresholds,Cold nights below 13Â°C,Number of days when TN is below 13Â°C.,days
-tnlt14,Fixed temperature thresholds,Cold nights below 14Â°C,Number of days when TN is below 14Â°C.,days
-tnlt15,Fixed temperature thresholds,Cold nights below 15Â°C,Number of days when TN is below 15Â°C.,days
-tnlt16,Fixed temperature thresholds,Cold nights below 16Â°C,Number of days when TN is below 16Â°C.,days
-tnlt17,Fixed temperature thresholds,Cold nights below 17Â°C,Number of days when TN is below 17Â°C.,days
-tnlt18,Fixed temperature thresholds,Cold nights below 18Â°C,Number of days when TN is below 18Â°C.,days
-tnlt19,Fixed temperature thresholds,Cold nights below 19Â°C,Number of days when TN is below 19Â°C.,days
-tnlt20,Fixed temperature thresholds,Cold nights below 20Â°C,Number of days when TN is below 20Â°C.,days
-tnlt21,Fixed temperature thresholds,Cold nights below 21Â°C,Number of days when TN is below 21Â°C.,days
-tnlt22,Fixed temperature thresholds,Cold nights below 22Â°C,Number of days when TN is below 22Â°C.,days
-tnlt23,Fixed temperature thresholds,Cold nights below 23Â°C,Number of days when TN is below 23Â°C.,days
-tnlt24,Fixed temperature thresholds,Cold nights below 24Â°C,Number of days when TN is below 24Â°C.,days
-tnn,Temperature extremes,Coldest nighttime temperature,Minimum of daily minimum temperatures (TN).,Â°C
-tnn_ymd,Extreme-event timing,Date associated with tnn,Calendar date associated with the corresponding annual extreme.,date
-tnx,Temperature extremes,Warmest nighttime temperature,Maximum of daily minimum temperatures (TN).,Â°C
-tnx_ymd,Extreme-event timing,Date associated with tnx,Calendar date associated with the corresponding annual extreme.,date
-tx10p,Temperature extremes,Cool days,Number of days when TX is below the 10th percentile.,days
-tx90p,Temperature extremes,Hot days,Number of days when TX is above the 90th percentile.,days
-txgt25,Fixed temperature thresholds,Hot days above 25Â°C,Number of days when TX is above 25Â°C.,days
-txgt26,Fixed temperature thresholds,Hot days above 26Â°C,Number of days when TX is above 26Â°C.,days
-txgt27,Fixed temperature thresholds,Hot days above 27Â°C,Number of days when TX is above 27Â°C.,days
-txgt28,Fixed temperature thresholds,Hot days above 28Â°C,Number of days when TX is above 28Â°C.,days
-txgt29,Fixed temperature thresholds,Hot days above 29Â°C,Number of days when TX is above 29Â°C.,days
-txgt30,Fixed temperature thresholds,Hot days above 30Â°C,Number of days when TX is above 30Â°C.,days
-txgt31,Fixed temperature thresholds,Hot days above 31Â°C,Number of days when TX is above 31Â°C.,days
-txgt32,Fixed temperature thresholds,Hot days above 32Â°C,Number of days when TX is above 32Â°C.,days
-txgt33,Fixed temperature thresholds,Hot days above 33Â°C,Number of days when TX is above 33Â°C.,days
-txgt34,Fixed temperature thresholds,Hot days above 34Â°C,Number of days when TX is above 34Â°C.,days
-txgt35,Fixed temperature thresholds,Hot days above 35Â°C,Number of days when TX is above 35Â°C.,days
-txgt36,Fixed temperature thresholds,Hot days above 36Â°C,Number of days when TX is above 36Â°C.,days
-txgt37,Fixed temperature thresholds,Hot days above 37Â°C,Number of days when TX is above 37Â°C.,days
-txgt50p,Temperature extremes,Days above median TX,Percentage of days when TX is above the 50th percentile.,%
-txlt16,Fixed temperature thresholds,Cool days below 16Â°C,Number of days when TX is below 16Â°C.,days
-txlt17,Fixed temperature thresholds,Cool days below 17Â°C,Number of days when TX is below 17Â°C.,days
-txlt18,Fixed temperature thresholds,Cool days below 18Â°C,Number of days when TX is below 18Â°C.,days
-txlt19,Fixed temperature thresholds,Cool days below 19Â°C,Number of days when TX is below 19Â°C.,days
-txlt20,Fixed temperature thresholds,Cool days below 20Â°C,Number of days when TX is below 20Â°C.,days
-txlt21,Fixed temperature thresholds,Cool days below 21Â°C,Number of days when TX is below 21Â°C.,days
-txlt22,Fixed temperature thresholds,Cool days below 22Â°C,Number of days when TX is below 22Â°C.,days
-txlt23,Fixed temperature thresholds,Cool days below 23Â°C,Number of days when TX is below 23Â°C.,days
-txlt24,Fixed temperature thresholds,Cool days below 24Â°C,Number of days when TX is below 24Â°C.,days
-txlt25,Fixed temperature thresholds,Cool days below 25Â°C,Number of days when TX is below 25Â°C.,days
-txlt26,Fixed temperature thresholds,Cool days below 26Â°C,Number of days when TX is below 26Â°C.,days
-txlt27,Fixed temperature thresholds,Cool days below 27Â°C,Number of days when TX is below 27Â°C.,days
-txn,Temperature extremes,Coolest daytime temperature,Minimum of daily maximum temperatures (TX).,Â°C
-txn_ymd,Extreme-event timing,Date associated with txn,Calendar date associated with the corresponding annual extreme.,date
-txx,Temperature extremes,Hottest daytime temperature,Maximum of daily maximum temperatures (TX).,Â°C
-txx_ymd,Extreme-event timing,Date associated with txx,Calendar date associated with the corresponding annual extreme.,date
-wsdi,Temperature extremes,Warm spell duration indicator,Annual number of days contributing to events where at least 6 consecutive days have TX above the 90th percentile.,days
-wsdi3,Temperature extremes,3-day warm spell duration indicator,Annual number of days contributing to events where at least 3 consecutive days have TX above the 90th percentile.,days
+variable,group,index_name,description,units,use
+cdd,Rainfall extremes,Consecutive dry days,Longest period each year without rainfall (less than 1 mm/day).,days,INCLUDE
+cddcold25,Degree days,Cooling Degree Days,Annual sum of TM ˆ’ 25 for days when TM > 25°C.,degree-days,
+csdi,Temperature extremes,Cold spell duration indicator,Annual number of days contributing to events where at least 6 consecutive days have TN below the 10th percentile.,days,
+csdi3,Temperature extremes,3-day cold spell duration indicator,Annual number of days contributing to events where at least 3 consecutive days have TN below the 10th percentile.,days,
+cwd,Rainfall extremes,Consecutive wet days,Maximum number of consecutive wet days when PR > 1.0 mm.,days,
+ehf_hwls,Heat and warm spells,Heatwave load severity,Measure of the total heat experienced during heatwaves. Higher values indicate more severe heatwaves overall.,,INCLUDE
+ehf_hwd,Heat and warm spells,Heatwave duration,Length of the longest heatwave.,days,
+ehf_hwf,Heat and warm spells,Heatwave frequency,Number of heatwave days each year.,days,INCLUDE
+ehf_hwmd,Heat and warm spells,Heatwave mean duration,Average number of days each heatwave lasts.,days,INCLUDE
+ehf_hwn,Heat and warm spells,Heatwave number,Number of heatwaves.,count,
+ehf_hwps,Heat and warm spells,Heatwave peak severity,,,
+gddgrow10,Degree days,Growing Degree Days (base 10°C),,degree-days,
+r100mm,Rainfall extremes,Rain days >100 mm,Number of days with rainfall meeting or exceeding 100 mm.,days,
+r10mm,Rainfall extremes,Rain days >10 mm,Number of days with rainfall meeting or exceeding 10 mm.,days,
+r1mm,Rainfall extremes,Wet days >1 mm,Number of days each year with at least 1 mm of rainfall.,days,INCLUDE
+r20mm,Rainfall extremes,Rain days >20 mm,Number of days with rainfall meeting or exceeding 20 mm.,days,
+r30mm,Rainfall extremes,Rain days >30 mm,Number of days with rainfall meeting or exceeding 30 mm.,days,
+r40mm,Rainfall extremes,Rain days >40 mm,Number of days with rainfall meeting or exceeding 40 mm.,days,
+r50mm,Rainfall extremes,Rain days >50 mm,Number of days with rainfall meeting or exceeding 50 mm.,days,
+r5mm,Rainfall extremes,Rain days >5 mm,Number of days with rainfall meeting or exceeding 5 mm.,days,
+r60mm,Rainfall extremes,Rain days >60 mm,Number of days with rainfall meeting or exceeding 60 mm.,days,
+r70mm,Rainfall extremes,Rain days >70 mm,Number of days with rainfall meeting or exceeding 70 mm.,days,
+r80mm,Rainfall extremes,Rain days >80 mm,Number of days with rainfall meeting or exceeding 80 mm.,days,
+r90mm,Rainfall extremes,Rain days >90 mm,Number of days with rainfall meeting or exceeding 90 mm.,days,
+r95p,Rainfall extremes,Rainfall from heavy rain days,Total annual rainfall from unusually heavy rain days (wettest 5% of days),mm,INCLUDE
+r95ptot,Rainfall extremes,Heavy-rain contribution,Percentage of annual rainfall contributed by days above the 95th percentile.,%,
+r99p,Rainfall extremes,Rainfall from very heavy rain days,Annual sum of daily PR above the 99th percentile.,mm,
+r99ptot,Rainfall extremes,Very-heavy-rain contribution,Percentage of annual rainfall contributed by days above the 99th percentile.,%,
+rx1day,Rainfall extremes,Maximum 1-day rainfall,Maximum 1-day rainfall total.,mm,
+rx1day_ymd,Extreme-event timing,Date associated with rx1day,Calendar date associated with the corresponding annual extreme.,date,
+rx3day,Rainfall extremes,Maximum 3-day rainfall,Maximum consecutive 3-day rainfall total.,mm,
+rx3day_ymd,Extreme-event timing,Date associated with rx3day,Calendar date associated with the corresponding annual extreme.,date,
+rx5day,Rainfall extremes,Maximum 5-day rainfall,Maximum consecutive 5-day rainfall total.,mm,
+rx5day_ymd,Extreme-event timing,Date associated with rx5day,Calendar date associated with the corresponding annual extreme.,date,
+sdii,Rainfall extremes,Wet-day rainfall intensity,Average amount of rainfall per day on days with more than 1 mm of rain.,mm/day,INCLUDE
+tn10p,Temperature extremes,Cold nights,Number of nights per year when the minimum temperature is among the coldest 10% of historical minimum temperatures.,days,INCLUDE
+tn90p,Temperature extremes,Warm nights,Number of nights per year when the minimum temperature is among the warmest 10% of historical minimum temperatures.,days,INCLUDE
+tngt20,Fixed temperature thresholds,Warm nights above 20°C,Number of days when TN is above 20°C.,days,
+tngt21,Fixed temperature thresholds,Warm nights above 21°C,Number of days when TN is above 21°C.,days,
+tngt22,Fixed temperature thresholds,Warm nights above 22°C,Number of days when TN is above 22°C.,days,
+tngt23,Fixed temperature thresholds,Warm nights above 23°C,Number of days when TN is above 23°C.,days,
+tngt24,Fixed temperature thresholds,Warm nights above 24°C,Number of days when TN is above 24°C.,days,
+tngt25,Fixed temperature thresholds,Warm nights above 25°C,Number of days when TN is above 25°C.,days,
+tngt26,Fixed temperature thresholds,Warm nights above 26°C,Number of days when TN is above 26°C.,days,
+tngt27,Fixed temperature thresholds,Warm nights above 27°C,Number of days when TN is above 27°C.,days,
+tngt28,Fixed temperature thresholds,Warm nights above 28°C,Number of days when TN is above 28°C.,days,
+tngt29,Fixed temperature thresholds,Warm nights above 29°C,Number of days when TN is above 29°C.,days,
+tngt30,Fixed temperature thresholds,Warm nights above 30°C,Number of days when TN is above 30°C.,days,
+tngt31,Fixed temperature thresholds,Warm nights above 31°C,Number of days when TN is above 31°C.,days,
+tngt32,Fixed temperature thresholds,Warm nights above 32°C,Number of days when TN is above 32°C.,days,
+tnlt13,Fixed temperature thresholds,Cold nights below 13°C,Number of days when TN is below 13°C.,days,
+tnlt14,Fixed temperature thresholds,Cold nights below 14°C,Number of days when TN is below 14°C.,days,
+tnlt15,Fixed temperature thresholds,Cold nights below 15°C,Number of days when TN is below 15°C.,days,
+tnlt16,Fixed temperature thresholds,Cold nights below 16°C,Number of days when TN is below 16°C.,days,
+tnlt17,Fixed temperature thresholds,Cold nights below 17°C,Number of days when TN is below 17°C.,days,
+tnlt18,Fixed temperature thresholds,Cold nights below 18°C,Number of days when TN is below 18°C.,days,
+tnlt19,Fixed temperature thresholds,Cold nights below 19°C,Number of days when TN is below 19°C.,days,
+tnlt20,Fixed temperature thresholds,Cold nights below 20°C,Number of days when TN is below 20°C.,days,
+tnlt21,Fixed temperature thresholds,Cold nights below 21°C,Number of days when TN is below 21°C.,days,
+tnlt22,Fixed temperature thresholds,Cold nights below 22°C,Number of days when TN is below 22°C.,days,
+tnlt23,Fixed temperature thresholds,Cold nights below 23°C,Number of days when TN is below 23°C.,days,
+tnlt24,Fixed temperature thresholds,Cold nights below 24°C,Number of days when TN is below 24°C.,days,
+tnn,Temperature extremes,Coldest nighttime temperature,Minimum of daily minimum temperatures (TN).,°C,
+tnn_ymd,Extreme-event timing,Date associated with tnn,Calendar date associated with the corresponding annual extreme.,date,
+tnx,Temperature extremes,Warmest nighttime temperature,Maximum of daily minimum temperatures (TN).,°C,
+tnx_ymd,Extreme-event timing,Date associated with tnx,Calendar date associated with the corresponding annual extreme.,date,
+tx10p,Temperature extremes,Cool days,Number of days per year when the maximum temperature is among the coolest 10% of historical maximum temperatures.,days,INCLUDE
+tx90p,Temperature extremes,Hot days,Number of days per year when the maximum temperature is among the hottest 10% of historical maximum temperatures,days,INCLUDE
+txgt25,Fixed temperature thresholds,Hot days above 25°C,Number of days when TX is above 25°C.,days,
+txgt26,Fixed temperature thresholds,Hot days above 26°C,Number of days when TX is above 26°C.,days,
+txgt27,Fixed temperature thresholds,Hot days above 27°C,Number of days when TX is above 27°C.,days,
+txgt28,Fixed temperature thresholds,Hot days above 28°C,Number of days when TX is above 28°C.,days,
+txgt29,Fixed temperature thresholds,Hot days above 29°C,Number of days when TX is above 29°C.,days,
+txgt30,Fixed temperature thresholds,Hot days above 30°C,Number of days when TX is above 30°C.,days,
+txgt31,Fixed temperature thresholds,Hot days above 31°C,Number of days when TX is above 31°C.,days,
+txgt32,Fixed temperature thresholds,Hot days above 32°C,Number of days when TX is above 32°C.,days,
+txgt33,Fixed temperature thresholds,Hot days above 33°C,Number of days when TX is above 33°C.,days,
+txgt34,Fixed temperature thresholds,Hot days above 34°C,Number of days when TX is above 34°C.,days,
+txgt35,Fixed temperature thresholds,Hot days above 35°C,Number of days when TX is above 35°C.,days,
+txgt36,Fixed temperature thresholds,Hot days above 36°C,Number of days when TX is above 36°C.,days,
+txgt37,Fixed temperature thresholds,Hot days above 37°C,Number of days when TX is above 37°C.,days,
+txgt50p,Temperature extremes,Days above median TX,Percentage of days when TX is above the 50th percentile.,%,
+txlt16,Fixed temperature thresholds,Cool days below 16°C,Number of days when TX is below 16°C.,days,
+txlt17,Fixed temperature thresholds,Cool days below 17°C,Number of days when TX is below 17°C.,days,
+txlt18,Fixed temperature thresholds,Cool days below 18°C,Number of days when TX is below 18°C.,days,
+txlt19,Fixed temperature thresholds,Cool days below 19°C,Number of days when TX is below 19°C.,days,
+txlt20,Fixed temperature thresholds,Cool days below 20°C,Number of days when TX is below 20°C.,days,
+txlt21,Fixed temperature thresholds,Cool days below 21°C,Number of days when TX is below 21°C.,days,
+txlt22,Fixed temperature thresholds,Cool days below 22°C,Number of days when TX is below 22°C.,days,
+txlt23,Fixed temperature thresholds,Cool days below 23°C,Number of days when TX is below 23°C.,days,
+txlt24,Fixed temperature thresholds,Cool days below 24°C,Number of days when TX is below 24°C.,days,
+txlt25,Fixed temperature thresholds,Cool days below 25°C,Number of days when TX is below 25°C.,days,
+txlt26,Fixed temperature thresholds,Cool days below 26°C,Number of days when TX is below 26°C.,days,
+txlt27,Fixed temperature thresholds,Cool days below 27°C,Number of days when TX is below 27°C.,days,
+txn,Temperature extremes,Coolest daytime temperature,Minimum of daily maximum temperatures (TX).,°C,
+txn_ymd,Extreme-event timing,Date associated with txn,Calendar date associated with the corresponding annual extreme.,date,
+txx,Temperature extremes,Hottest daytime temperature,Maximum of daily maximum temperatures (TX).,°C,
+txx_ymd,Extreme-event timing,Date associated with txx,Calendar date associated with the corresponding annual extreme.,date,
+wsdi,Heat and warm spells,Warm spell duration indicator,Annual number of days contributing to events where at least 6 consecutive days have TX above the 90th percentile.,days,
+wsdi3,Heat and warm spells,3+ days warm spell duration,Total number of days per year in hot spells that last at least three consecutive days.,days,INCLUDE
+spei12,Drought,Standardised Precipitation-Evapotranspiration Index (12 months),"A measure of drought using the Standardised Precipitation-Evapotranspiration Index on time scales of 3, 6, 12 and 24 months. See Vicente-Serrano et al. (2010) for details.",,
+spei24,Drought,Standardised Precipitation-Evapotranspiration Index (24 months),"A measure of drought using the Standardised Precipitation-Evapotranspiration Index on time scales of 3, 6, 12 and 24 months. See Vicente-Serrano et al. (2010) for details.",,
+spei3,Drought,Standardised Precipitation-Evapotranspiration Index (3 months),"A measure of drought using the Standardised Precipitation-Evapotranspiration Index on time scales of 3, 6, 12 and 24 months. See Vicente-Serrano et al. (2010) for details.",,
+spei6,Drought,Standardised Precipitation-Evapotranspiration Index (6 months),"A measure of drought using the Standardised Precipitation-Evapotranspiration Index on time scales of 3, 6, 12 and 24 months. See Vicente-Serrano et al. (2010) for details.",,
+spi12,Drought,Standardised Precipitation Index (12 months),"A measure of drought using the Standardised Precipitation Index on time scales of 3, 6, 12 and 24 months. See McKee et al. (1993) and the World Meteorological Organization SPI user guide (2012) for details.",,
+spi24,Drought,Standardised Precipitation Index (24 months),"A measure of drought using the Standardised Precipitation Index on time scales of 3, 6, 12 and 24 months. See McKee et al. (1993) and the World Meteorological Organization SPI user guide (2012) for details.",,
+spi3,Drought,Standardised Precipitation Index (3 months),"A measure of drought using the Standardised Precipitation Index on time scales of 3, 6, 12 and 24 months. See McKee et al. (1993) and the World Meteorological Organization SPI user guide (2012) for details.",,
+spi6,Drought,Standardised Precipitation Index (6 months),"A measure of drought using the Standardised Precipitation Index on time scales of 3, 6, 12 and 24 months. See McKee et al. (1993) and the World Meteorological Organization SPI user guide (2012) for details.",,

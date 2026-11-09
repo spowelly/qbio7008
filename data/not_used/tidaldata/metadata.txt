@@ -1,0 +1,29 @@
+The data supplied is licensed under a Creative Commons Attribution 4.0 licence. 
+To view a copy of this licence visit:
+http://creativecommons.org/licenses/by/4.0
+
+Licence:
+This work is licensed under a Creative Commons Attribution 4.0 Licence: 
+http://creativecommons.org/licenses/by/4.0/legalcode 
+
+You are free:
+
+               1.to copy distribute display and perform the work
+               2.to make derivative works
+               3.to make commercial use of the work
+
+Under the following conditions:
+
+               1. Attribution: You must give the original author credit.
+               2. Please attribute "Department of Climate Change, Energy, the Environment and Water" in any publications using this data.
+
+
+Station Name, Lord Howe Island
+Station Number, 240402
+Longitude,159.05815
+Latitude,-31.523638
+Web,"http://www.mhl.nsw.gov.au/Station-240402"
+
+Datum, LHI Datum (1963)
+
+Parameter, Level 1
