@@ -16,10 +16,7 @@ project_dir <- "C:/Users/sophm/UQ/QBIO7008/ProjectData/ClimateModelling"
 setwd(project_dir)
 dir.create("graphs", showWarnings = FALSE, recursive = TRUE)
 
-port_mac_file <- file.path(
-  project_dir, "data", "cipsap", "reference_locations",
-  "Port-Macquarie_variables_monthly_1910_2025_hom.csv"
-)
+port_mac_file <- "data/cipsap/reference_locations/Port-Macquarie_variables_monthly_1910_2025_hom.csv"
 
 climatology_years <- 1950:2024
 study_years <- 1940:2024

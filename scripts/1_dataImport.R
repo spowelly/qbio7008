@@ -2,8 +2,6 @@
 # LORD HOWE ISLAND: HISTORICAL CLIMATE DATA PREPARATION
 # Monthly (1940–2024), seasonal and annual observations
 # ============================================================
-# Run before the annual, monthly, ENSO and changepoint scripts.
-# Working directory: C:/Users/sophm/UQ/QBIO7008/ProjectData/ClimateModelling
 
 library(dplyr)
 

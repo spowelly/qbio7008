@@ -5,7 +5,6 @@ library(dplyr)
 library(ggplot2)
 library(tidyr)
 
-setwd("C:/Users/sophm/UQ/QBIO7008/ProjectData/ClimateModelling")
 
 ####### TEMPERATURE ############
 # Tool to read in data & clean

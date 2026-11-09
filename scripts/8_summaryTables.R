@@ -14,8 +14,6 @@ library(tidyr)
 library(gt)
 # mblm and trend are called with explicit namespaces.
 
-output_dir <- "tables"
-dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
 # ------------------------------------------------------------
 # 1. METADATA AND SHARED FUNCTIONS

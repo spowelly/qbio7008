@@ -8,11 +8,6 @@ library(dplyr)
 library(ggplot2)
 library(tidyr)
 
-# Use the same project directory as the other analysis scripts.
-setwd("C:/Users/sophm/UQ/QBIO7008/ProjectData/ClimateModelling")
-dir.create("graphs", showWarnings = FALSE, recursive = TRUE)
-dir.create("tables", showWarnings = FALSE, recursive = TRUE)
-
 # ------------------------------------------------------------
 # 1. LOAD DATA AND INDEX METADATA
 # ------------------------------------------------------------
