@@ -1,0 +1,37 @@
+"variable","n_years","start_year","end_year","fitted_start","fitted_end","period_change","slope_decade","p_value","label","category","units","significant","significance","p_text","panel_label"
+"cdd",81,1944,2024,14.4186046511628,18.1395348837209,3.72093023255814,0.465116279069767,0.0408637084752132,"Consecutive dry days","Rainfall extremes","days",TRUE,"Significant (p < 0.05)","p = 0.041","Consecutive dry days* (days)
+Fitted 1944: 14.4  →  2024: 18.1 | Δ +3.7
+Sen: +0.47/decade; p = 0.041"
+"ehf_hwls",75,1946,2024,1.49662324716002,18.6537778726801,17.15715462552,2.1996352084,5.68716379307397e-06,"Heatwave load severity","Heat and warm spells","",TRUE,"Significant (p < 0.05)","p < 0.001","Heatwave load severity* ()
+Fitted 1946: 1.5  →  2024: 18.7 | Δ +17.2
+Sen: +2.20/decade; p < 0.001"
+"ehf_hwf",77,1946,2024,11.520625889047,44.2795163584638,32.7588904694168,4.19985775248933,7.16135762168289e-06,"Heatwave frequency","Heat and warm spells","days",TRUE,"Significant (p < 0.05)","p < 0.001","Heatwave frequency* (days)
+Fitted 1946: 11.5  →  2024: 44.3 | Δ +32.8
+Sen: +4.20/decade; p < 0.001"
+"ehf_hwmd",75,1946,2024,4.50204081604082,7.3673469384898,2.86530612244898,0.36734693877551,0.00762294307584229,"Heatwave mean duration","Heat and warm spells","days",TRUE,"Significant (p < 0.05)","p = 0.008","Heatwave mean duration* (days)
+Fitted 1946: 4.5  →  2024: 7.4 | Δ +2.9
+Sen: +0.37/decade; p = 0.008"
+"r1mm",81,1944,2024,138.443143812709,113.961538461538,-24.4816053511706,-3.06020066889632,4.89883892690594e-05,"Wet days >1 mm","Rainfall extremes","days",TRUE,"Significant (p < 0.05)","p < 0.001","Wet days >1 mm* (days)
+Fitted 1944: 138.4  →  2024: 114.0 | Δ -24.5
+Sen: -3.06/decade; p < 0.001"
+"r95p",81,1944,2024,516.567004264392,287.786620469084,-228.780383795309,-28.5975479744136,0.00668502820666071,"Rainfall from heavy rain days","Rainfall extremes","mm",TRUE,"Significant (p < 0.05)","p = 0.007","Rainfall from heavy rain days* (mm)
+Fitted 1944: 516.6  →  2024: 287.8 | Δ -228.8
+Sen: -28.60/decade; p = 0.007"
+"sdii",81,1944,2024,9.84035679128419,8.67539719701069,-1.1649595942735,-0.145619949284188,0.118280991647031,"Wet-day rainfall intensity","Rainfall extremes","mm/day",FALSE,"Not significant","p = 0.118","Wet-day rainfall intensity (mm/day)
+Fitted 1944: 9.8  →  2024: 8.7 | Δ -1.2
+Sen: -0.15/decade; p = 0.118"
+"tn10p",78,1944,2024,65.3836850207463,47.4732372595523,-17.910447761194,-2.23880597014925,0.0553490196222272,"Cold nights","Temperature extremes","days",FALSE,"Not significant","p = 0.055","Cold nights (days)
+Fitted 1944: 65.4  →  2024: 47.5 | Δ -17.9
+Sen: -2.24/decade; p = 0.055"
+"tn90p",78,1944,2024,13.2720306552778,74.2681992330556,60.9961685777778,7.62452107222222,4.31505179313102e-14,"Warm nights","Temperature extremes","days",TRUE,"Significant (p < 0.05)","p < 0.001","Warm nights* (days)
+Fitted 1944: 13.3  →  2024: 74.3 | Δ +61.0
+Sen: +7.62/decade; p < 0.001"
+"tx10p",79,1944,2024,54.3255172288,3.45655172479997,-50.868965504,-6.358620688,8.67847838758341e-15,"Cool days","Temperature extremes","days",TRUE,"Significant (p < 0.05)","p < 0.001","Cool days* (days)
+Fitted 1944: 54.3  →  2024: 3.5 | Δ -50.9
+Sen: -6.36/decade; p < 0.001"
+"tx90p",79,1944,2024,11.0791826303703,85.4597701266664,74.3805874962963,9.29757343703704,5.14726968397053e-11,"Hot days","Temperature extremes","days",TRUE,"Significant (p < 0.05)","p < 0.001","Hot days* (days)
+Fitted 1944: 11.1  →  2024: 85.5 | Δ +74.4
+Sen: +9.30/decade; p < 0.001"
+"wsdi3",79,1944,2024,-1.60000000000014,46.3999999999999,48,6,2.69180325425738e-09,"3+ days warm spell duration","Heat and warm spells","days",TRUE,"Significant (p < 0.05)","p < 0.001","3+ days warm spell duration* (days)
+Fitted 1944: -1.6  →  2024: 46.4 | Δ +48.0
+Sen: +6.00/decade; p < 0.001"

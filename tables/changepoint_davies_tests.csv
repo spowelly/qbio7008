@@ -1,0 +1,7 @@
+"Variable","N","Linear slope per decade (95% CI)","R²","Davies p-value","Significant"
+"Historical mean temperature",83,"+0.12 (+0.09 to +0.14)",0.481,"0.101","No"
+"Historical minimum temperature",84,"+0.11 (+0.08 to +0.15)",0.385,"0.216","No"
+"Historical maximum temperature",83,"+0.13 (+0.10 to +0.16)",0.461,"<0.001","Yes"
+"Historical rainfall",82,"-33.80 (-57.67 to -9.94)",0.09,"0.610","No"
+"Projected mean temperature",86,"+0.31 (+0.30 to +0.32)",0.982,"<0.001","Yes"
+"Projected rainfall",120,"-21.13 (-25.60 to -16.66)",0.426,"0.085","No"
